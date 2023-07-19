@@ -1,0 +1,125 @@
+package p1;
+
+public class Student {
+	public int studentId;
+	public String name;
+	public double examFee;
+	
+	public  Student()
+	{
+	}
+	public Student(int studentId,String name,double examFee)
+	{
+	   this.studentId=studentId;
+	   this.name =name;
+	   this.examFee=examFee;
+	}
+	
+	
+	public void  displayDetails()
+	{
+		System.out.println("====STUDENT DETAILS====");
+		System.out.println("Student Name:"+name);
+		System.out.println("Student ID:"+studentId);
+		System.out.println("Student examFee:"+examFee);
+	}
+	public void payFee(double amount)
+	{
+		double totalFee=examFee;
+		System.out.println("remaining Fee:"+(totalFee-amount));
+	}
+	
+}
+
+package p1;
+
+public class Student {
+	public int studentId;
+	public String name;
+	public double examFee;
+	
+	public  Student()
+	{
+	}
+	public Student(int studentId,String name,double examFee)
+	{
+	   this.studentId=studentId;
+	   this.name =name;
+	   this.examFee=examFee;
+	}
+	
+	
+	public void  displayDetails()
+	{
+		System.out.println("====STUDENT DETAILS====");
+		System.out.println("Student Name:"+name);
+		System.out.println("Student ID:"+studentId);
+		System.out.println("Student examFee:"+examFee);
+	}
+	public void payFee(double amount)
+	{
+		double totalFee=examFee;
+		System.out.println("remaining Fee:"+(totalFee-amount));
+	}
+	
+
+}
+
+package p1;
+
+public class Hosteller extends Student {
+	public double hostelFee;
+	public Hosteller()
+	{
+	}
+	public Hosteller(int studentId, String name, double examFee, double transportFee) 
+	{
+	        super(studentId,name,examFee);
+	        this.hostelFee = transportFee;
+	}
+	
+  public void displayDetails()
+  {
+	  System.out.println("====HOSTELLER DETAILS====");
+	  System.out.println("hostelFee:"+hostelFee); 
+	  System.out.println("Name:"+name);
+	  System.out.println("studentId:"+studentId);
+	  System.out.println("examFee:"+examFee);
+	  
+  }
+  public void payFee(double amount)
+	{
+		double totalFee=examFee+hostelFee;
+		System.out.println("remaining Fee:"+(totalFee-amount));
+	}
+}
+
+package p2;
+import p1.*;
+import java.util.*;
+
+public class Assignment_inheritance {
+	public static void main(String[] args)
+	{
+		Scanner s =new Scanner(System.in);
+		Student student = new Student(123, "John Smith", 100.0);
+		student.displayDetails();
+		System.out.println("enter amount you can pay:");
+		double amt=s.nextInt();
+		student.payFee(amt);
+		
+		 DayScholar dayScholar = new DayScholar(456, "Jane Doe", 150.0, 500.0);
+		dayScholar.displayDetails();
+		System.out.println("enter amount you can pay:");
+		double amt2=s.nextInt();
+		dayScholar.payFee(amt2);
+		
+		 Hosteller hosteller = new Hosteller(789, "Alice Johnson", 200.0, 1000.0);
+		 hosteller.displayDetails();
+		 System.out.println("enter amount you can pay:");
+			double amt3=s.nextInt();
+			hosteller.payFee(amt3);
+			s.close();
+	}
+
+}
