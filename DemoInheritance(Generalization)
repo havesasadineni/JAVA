@@ -1,0 +1,41 @@
+package p1;
+
+public interface ITest {
+	public  abstract void m1(int a);
+	public default void m2(int b)
+	{
+      System.out.println("***m2()***");
+      System.out.println("b="+b);
+	}
+
+}
+
+package p1;
+
+public class IClass implements ITest {
+	public  void m1(int a)
+	{
+      System.out.println("***m1()***");
+      System.out.println("a="+a);
+	}
+	public  void m3(int c)
+	{
+      System.out.println("***m3()***");
+      System.out.println("c="+c);
+	}
+
+}
+
+package p2;
+import p1.*;
+public class DemoInheritance6 {
+
+	public static void main(String[] args) {
+		ITest ob =(ITest) new IClass();
+		ob.m1(12);
+		ob.m2(13);
+		
+
+	}
+
+}
