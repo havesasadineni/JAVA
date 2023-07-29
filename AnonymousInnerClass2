@@ -1,0 +1,26 @@
+package p1;
+
+public interface ITest {
+	public abstract void m(int x);
+
+}
+
+
+package p2;
+import p1.*;
+
+public class DemoAnonymous2 {
+	public static void main(String[] args) {
+		ITest ob = new ITest()
+		{
+		//IClass as Anonymous
+		public void m(int x)
+		{
+		System.out.println("****m(x)****");
+		System.out.println("The value x:"+x);
+		}
+		};
+		ob.m(121);
+		}
+
+}
