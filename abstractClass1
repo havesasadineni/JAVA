@@ -1,0 +1,84 @@
+Project Name : AbstractClass_App
+p1 : AClass.java
+package p1;
+
+public abstract class AClass {
+	public int a,b;
+	public AClass(int a,int b)
+	{
+		this.a=a;
+		this.b=b;
+	}
+	{
+		System.out.println("***Instance block***");
+		System.out.println("The value a:"+a);
+		System.out.println("The value b:"+b);
+	}
+	public void getValues() 
+	{
+		System.out.println("***Instance method***");
+		System.out.println("The value a:"+a);
+		System.out.println("The value b:"+b);
+	}
+	
+	public abstract void addValues();
+	
+
+}
+
+p1 : EClass.java
+
+package p1;
+
+public class EClass extends AClass{
+	
+	public EClass(int a,int b)
+	{
+		super(a,b);
+	}
+	public void addValues()
+	{
+	System.out.println("****addValues()****");
+	System.out.println("Sum:"+(a+b));
+	}
+	
+
+}
+
+p2 : DemoAbstractClass.java(MainClass)
+package p2;
+import p1.*;
+import java.util.*;
+public class DemoAbstractClass {
+
+	public static void main(String[] args) {
+		
+		//AClass ob = new AClass(12,13);//Error
+
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the value of a:");
+		int a = s.nextInt();
+		System.out.println("Enter the value of b:");
+		int b = s.nextInt();
+		EClass ob = new EClass(a,b);//EClass_Con_Call
+		ob.getValues();
+		ob.addValues();
+		s.close();
+	}
+
+}
+}
+o/p:
+Enter the value of a:
+12
+Enter the value of b:
+13
+***Instance block***
+The value a:0
+The value b:0
+***Instance method***
+The value a:12
+The value b:13
+
+****addValues()****
+Sum:25
