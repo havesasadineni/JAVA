@@ -1,0 +1,39 @@
+package p2;
+import p1.*;
+import java.util.*;
+public class DemoAbstractClass {
+
+	public static void main(String[] args) {
+		
+		//AClass ob = new AClass(12,13);//Error
+
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the value of a:");
+		int a = s.nextInt();
+		System.out.println("Enter the value of b:");
+		int b = s.nextInt();
+		EClass ob = new EClass(a,b);//EClass_Con_Call
+		ob.getValues();
+		ob.addValues();
+		s.close();
+	}
+
+}
+
+
+
+package p2;
+import p1.*;
+public class DemoInnerClass1 {
+
+	public static void main(String[] args) {
+		SubClass1 ob = new SubClass1();
+		ob.m1();
+		SubClass1.SubClass2 ob1 =new SubClass1.SubClass2();
+		ob1.m2();
+		SubClass1.SubClass2.m22();
+		
+
+	}
+
+}
