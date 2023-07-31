@@ -1,0 +1,26 @@
+package p1;
+
+public interface ITest {
+
+	public abstract void m(int x);
+}
+
+
+package p2;
+import p1.ITest;
+
+public class DemoLambdaExpression1 {
+
+	public static void main(String[] args) {
+		//LambdaExpression
+		ITest ob = (int x)->
+		{
+		System.out.println("***m(x)****");
+		System.out.println("The value x:"+x);
+		};
+		ob.m(12);
+		
+
+	}
+
+}
