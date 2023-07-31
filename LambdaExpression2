@@ -1,0 +1,34 @@
+package p1;
+
+public interface ITest {
+	public static final int a=200;
+	public abstract void m1(int x);
+	public default void m2(int y)
+	{
+	System.out.println("****default m2(y)***");
+	System.out.println("The value y:"+y);
+	System.out.println("ITest var:"+a);
+	}
+
+}
+
+
+package p2;
+import p1.*;
+public class DemoLambdaExpression2 {
+	public static int b=300;
+	public static void main(String[] args)
+	{
+	int c = 400;
+	ITest ob = (int x)->
+	{
+	System.out.println("***LambdaExpression-body****");
+	System.out.println("The value x:"+x);
+	System.out.println("main()-var:"+c);
+	System.out.println("MainClass-var:"+b);
+	System.out.println("ITest-var:"+ITest.a);
+	};
+	ob.m1(12);
+	ob.m2(13);
+
+}}
