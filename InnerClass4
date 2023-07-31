@@ -1,0 +1,51 @@
+package p1;
+
+public interface ITest {
+	public static class SubClass1{
+		public void m1(int a) {
+		System.out.println(";****m1(x)****");
+		System.out.println("The value a:"+a);
+		}
+		}//Static member InnerClass
+
+}
+
+package p1;
+
+public class AClass {
+	public class SubClass2{
+		public void m2(int b) {
+		System.out.println("****m2(b)****");
+		System.out.println("The value b:"+b);
+		}
+		}//Instance member InnerClass
+		public static class SubClass3{
+		public void m3(int c) {
+		System.out.println("****m3(c)****");
+		System.out.println("The value c:"+c);
+
+		}
+		}//Static member InnerClass
+
+}
+
+package p2;
+import p1.*;
+public class DemoInnerClass4 {
+	public static void main(String[] args) {
+		System.out.println("-----InnerClass in Interface----");
+		ITest.SubClass1 ob1 = new ITest.SubClass1();
+		ob1.m1(11);
+		System.out.println("----Instance member InnerClass in Abstract Class----");
+		AClass ob = new AClass()
+		{
+		//0-methods
+		};
+		AClass.SubClass2 ob2 = ob.new SubClass2();
+		ob2.m2(13);
+		System.out.println("----Static member InnerClassin Abstract Class----");
+		AClass.SubClass3 ob3 = new AClass.SubClass3();
+		ob3.m3(14);
+		}
+
+}
