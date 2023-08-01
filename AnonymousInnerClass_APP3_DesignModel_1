@@ -1,0 +1,47 @@
+package p1;
+
+public interface DConnection {
+	public abstract void m(int x);
+
+}
+
+
+package p1;
+
+public class DManager {
+	public static DConnection getConnection()
+	{
+	//IClass_as_Anonymous
+	DConnection ob = new DConnection()
+	{
+	public void m(int x)
+	{
+	System.out.println("****m(x)****");
+	System.out.println("The value x:"+x);
+	}
+	};
+	return ob;
+	}
+
+}
+
+
+package p2;
+import p1.*;
+import java.util.*;
+
+public class DemoAnonymous3 {
+
+	public static void ma(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the value x:");
+		int x = s.nextInt();
+		DConnection con = DManager.getConnection();
+		con.m(x);
+		s.close();
+		}
+		
+
+	}
+
+
