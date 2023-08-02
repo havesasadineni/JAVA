@@ -1,0 +1,79 @@
+p1 : Traveller.java
+package p1;
+
+public class Traveller {
+public Vehicle v = null;
+public Traveller(Vehicle v)
+{
+	this.v=v;
+}
+public void execute() {
+	v.ride();
+}
+}
+
+
+p1 : Vehicle.java
+}
+
+p1 : Bike.java
+package p1;
+
+public class Bike implements Vehicle {
+	public void ride() {
+	System.out.println("Traveller travels using Bike...");
+
+}}
+
+
+p1 : Car.java
+package p1;
+
+public class Car implements Vehicle{
+	public void ride() {
+
+		System.out.println("Traveller travels using Car...");
+	}
+	}
+
+
+p2 : DemoPoly1.java(MainClass)
+package p2;
+import java.util.*;
+import p1.*;
+public class DemoPoly {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		try(s;){
+			try {
+				
+				System.out.println("====Choice===");
+			
+				System.out.println("\t1.Bike"+"\n\t2.Car");
+				int choice = s.nextInt();
+				switch(choice) {
+				case 1:
+				Traveller ob1 = new Traveller(new Bike());
+				ob1.execute();
+				break;
+				case 2:
+				Traveller ob2 = new Traveller(new Car());
+
+				ob2.execute();
+				break;
+				default:
+				System.out.println("Invalid Choice...");
+				
+		        }//end of switch
+			    }//end of try
+	            catch(InputMismatchException ime) 
+			    {
+				System.out.println("Enter only integer value");
+				}
+		}
+	
+
+	}
+
+}
