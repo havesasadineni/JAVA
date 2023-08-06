@@ -1,0 +1,85 @@
+ClassFiles:
+IArithmetic.class
+Operations.class
+Demo3.class(MainClass)
+
+
+package p1;
+
+public interface IArithematic {
+public abstract double process(int x,int y);
+
+}
+
+
+package p1;
+
+public class Operations {
+	public IArithematic ob;
+	public Operations(IArithematic ob) {
+		this.ob=ob;
+		}
+	public void getResult(int x , int y) {
+		System.out.println("Result:"+ob.process(x,y));
+	}
+
+}
+
+
+package p2;
+import p1.*;
+import java.util.*;
+
+public class Demo3 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter value for x");
+		int x1=s.nextInt();
+		System.out.println("Enter value for y");
+		int y1=s.nextInt();
+		Operations op=null;
+		System.out.println("****Choice****");
+		System.out.println("\t1.add"
+		+ "\n\t2.sub"
+		+ "\n\t3.mul"
+		+ "\n\t4.div"
+		+ "\n\t5.modDiv&");
+		System.out.println("Enter the Choice:");
+		int choice = s.nextInt();
+		switch(choice) {
+		case 1:
+		//Addition as LambdaExpression
+
+		op = new Operations((int x,int y)-> x+y);
+		op.getResult( x1, y1);
+		break;
+		case 2:
+		//Subtraction as LambdaExpression
+		op = new Operations((int x,int y)->x-y);
+		op.getResult(x1, y1);
+		break;
+		case 3:
+		//Multiplication as LambdaExpression
+		op = new Operations((int x,int y)->x*y);
+		op.getResult(x1, y1);
+		break;
+		case 4:
+		//Division as LambdaExpression
+		op = new Operations((int x,int y)->(double)x/y);
+		op.getResult(x1, y1);
+		break;
+		case 5:
+		//ModDivision as LambdaExpression
+		op = new Operations((int x,int y)->x%y);
+		op.getResult(x1, y1);
+
+		break;
+		default:
+		System.out.println("Invalid Choice...");
+		}//end of switch
+		s.close();
+
+	}
+
+}
