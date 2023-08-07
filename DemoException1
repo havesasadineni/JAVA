@@ -1,0 +1,45 @@
+Program : DemoException1.java
+package maccess;
+import java.util.*;
+
+public class DemoException1 extends Exception {
+	public DemoException1(String msg)
+	{
+	  super(msg);
+	}
+
+	public static void main(String[] args) {
+	 Scanner s = new Scanner(System.in);
+	 try
+	 {
+		 System.out.println("Enter the bSal:");
+		 int bSal = s.nextInt();//Exception for  Non_int_Value
+		 if(bSal>12000)//Exception-condition
+		 {
+		 DemoException1 ob = new DemoException1("Invalid bSal...");
+	       
+		 throw ob;
+		 }
+		 float totSal =
+		 bSal+(0.93F*bSal)+(0.63F*bSal);
+
+		 System.out.println("BSal:"+bSal);
+		 System.out.println("TotSal:"+totSal);
+	 }
+	 catch(InputMismatchException ime)
+	 {
+	 System.out.println("Enter only Integer value...");
+	 }
+	 catch(DemoException1 ob)
+	 {
+	 System.out.println(ob.getMessage());
+	 }
+
+	}
+
+}
+
+o/p:
+Enter the bSal:
+1200
+Invalid bSal...
